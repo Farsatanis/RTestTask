@@ -1,0 +1,3 @@
+chromeDriverServerPath: "/Users/defremov/Downloads/chromedriver"
+geckoDriverServerPath: "/path/to/geckodriver"
+serverUrl: "https://www.revolut.com/"
