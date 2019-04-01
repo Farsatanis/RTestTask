@@ -9,6 +9,7 @@ import pages.RevolutCommunityPage;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.testng.Assert.*;
 
 public class RevolutTests extends RTestBase {
@@ -68,8 +69,8 @@ public class RevolutTests extends RTestBase {
         RevolutCommunityPage communityPage = mainPage.openCommunity("Help");
         boolean oldBarState = communityPage.getNavigationBar().getButton("Top").isActive();
         communityPage = communityPage.sendKeys("g", "t");
-        assertTrue(communityPage.getNavigationBar().getButton("Top").isActive());
-        assertTrue(oldBarState != communityPage.getNavigationBar().getButton("Top").isActive());
+        assertThat(communityPage.getNavigationBar().getButton("Top").isActive()).isTrue();
+        assertThat(communityPage.getNavigationBar().getButton("Top").isActive()).isNotEqualTo(oldBarState);
     }
 
     @Test
@@ -77,8 +78,8 @@ public class RevolutTests extends RTestBase {
         RevolutCommunityPage communityPage = mainPage.openCommunity("Help");
         boolean oldBarState = communityPage.getNavigationBar().getButton("Latest").isActive();
         communityPage = communityPage.sendKeys("g", "l");
-        assertTrue(communityPage.getNavigationBar().getButton("Latest").isActive());
-        assertTrue(oldBarState != communityPage.getNavigationBar().getButton("Latest").isActive());
+        assertThat(communityPage.getNavigationBar().getButton("Latest").isActive()).isTrue();
+        assertThat(communityPage.getNavigationBar().getButton("Latest").isActive()).isNotEqualTo(oldBarState);
     }
 
     @Test
@@ -86,16 +87,15 @@ public class RevolutTests extends RTestBase {
         RevolutCommunityPage communityPage = mainPage.openCommunity("Help");
 
         communityPage = communityPage.sendKeys("g", "t");
-        assertTrue(communityPage.getNavigationBar().getButton("Top").isActive());
+        assertThat(communityPage.getNavigationBar().getButton("Top").isActive()).isTrue();
 
         communityPage = communityPage.sendKeys("g", "l");
-        assertTrue(communityPage.getNavigationBar().getButton("Latest").isActive());
+        assertThat(communityPage.getNavigationBar().getButton("Latest").isActive()).isTrue();
 
         communityPage = communityPage.sendKeys("g", "c");
-        assertTrue(communityPage.getNavigationBar().getButton("Categories").isActive());
+        assertThat(communityPage.getNavigationBar().getButton("Categories").isActive()).isTrue();
 
         communityPage = communityPage.sendKeys("g", "u");
-        assertTrue(communityPage.getNavigationBar().getButton("Latest").isActive());
-
+        assertThat(communityPage.getNavigationBar().getButton("Latest").isActive()).isTrue();
     }
 }

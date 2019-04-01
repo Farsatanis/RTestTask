@@ -1,7 +1,6 @@
 package tests;
 
 import framework.TestBase;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import pages.RevolutStartPage;
 
@@ -12,9 +11,5 @@ public class RTestBase extends TestBase {
     @BeforeMethod
     public final void beforeTest() {
         mainPage = new RevolutStartPage(getServerUrl());
-    }
-
-    @AfterTest
-    public final void afterTest() {
     }
 }
